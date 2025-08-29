@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="register.css" />
+  </head>
+  <body>
+    <div class="parent">
+      <form method="post" class="form" name="register">
+        <h2>Register</h2>
+        <div class="input-form">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            autocomplete="email"
+            required
+          />
+        </div>
+        <div class="input-form">
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Phone"
+            autocomplete="tel"
+            required
+          />
+        </div>
+        <div class="input-form">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Username"
+            autocomplete="username"
+            required
+          />
+        </div>
+        <div class="input-form">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            autocomplete="new-password"
+            required
+          />
+        </div>
+        <div class="input-form">
+          <button id="register" type="submit">Register</button>
+        </div>
+        <div class="input-form">
+          <p>Have an account? <a href="/login" id="login">Login</a></p>
+        </div>
+      </form>
+    </div>
+    <script src="auth.js"></script>
+  </body>
+</html>
