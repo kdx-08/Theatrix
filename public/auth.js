@@ -1,6 +1,7 @@
 const regForm = document.forms.register;
 const loginForm = document.forms.login;
 const actionResponse = document.querySelector('.action-response');
+
 regForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const name = regForm.username.value;

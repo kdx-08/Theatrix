@@ -5,7 +5,7 @@ const {
   getScreen,
   updateScreen,
   deleteScreen,
-} = require('../controllers/screen.controller');
+} = require('../../controllers/screen.controller');
 
 const router = express.Router({ mergeParams: true });
 

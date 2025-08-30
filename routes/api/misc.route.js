@@ -1,5 +1,5 @@
 const express = require('express');
-const { getRandom } = require('../controllers/misc.controller');
+const { getRandom } = require('../../controllers/misc.controller');
 
 const app = express.Router();
 

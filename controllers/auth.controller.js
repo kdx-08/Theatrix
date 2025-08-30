@@ -67,6 +67,8 @@ const loginRoute = async (req, res) => {
 };
 
 const logoutRoute = (req, res) => {
+  const cookie = req.cookies.token;
+  if (!cookie) return res.status(400).json({ message: 'no account found' });
   res.status(200).clearCookie('token').json({ message: 'logged out successfully' });
 };
 

@@ -1,5 +1,19 @@
 const jwt = require('jsonwebtoken');
 
+const checkAdmin = (req, res, next) => {
+  const token = req.cookies.token;
+  if (!token) return res.status(401).json({ message: 'access denied' });
+  try {
+    const decoded = jwt.decode(token);
+    req.user = decoded;
+    if (req.user.email !== process.env.ADMIN)
+      return res.status(403).json({ message: 'access denied' });
+    next();
+  } catch (error) {
+    res.status(400).json('invalid token');
+  }
+};
+
 const checkAuth = (req, res, next) => {
   const token = req.cookies.token;
   if (!token) return res.status(401).json({ message: 'access denied' });
@@ -27,4 +41,4 @@ const partialCheck = (req, res, next) => {
   }
 };
 
-module.exports = { checkAuth, checkValid, partialCheck };
+module.exports = { checkAdmin, checkAuth, checkValid, partialCheck };
