@@ -1,13 +1,27 @@
 const db = require('../utils/connectDB');
 
-const getRandom = async (req, res) => {
-  const result = await db.query('SELECT * FROM movie');
-  const values = [];
-  for (let i = 0; i < 10; i++) {
-    randomVal = Math.floor(Math.random() * 250);
-    values.push(result[0][randomVal]);
-  }
-  return res.status(200).json(values);
+const getTotalSales = async (req, res) => {
+  const query = 'SELECT SUM(total_price) FROM booking';
+  const response = (await db.query(query)).rows[0];
+  res.send(response);
 };
 
-module.exports = { getRandom };
+const getTotalTickets = async (req, res) => {
+  const query = 'SELECT SUM(seat_count) FROM booking';
+  const response = (await db.query(query)).rows[0];
+  res.send(response);
+};
+
+const getTotalUsers = async (req, res) => {
+  const query = 'SELECT COUNT(user_id) FROM users';
+  const response = (await db.query(query)).rows[0];
+  res.send(response);
+};
+
+const getTotalTheatres = async (req, res) => {
+  const query = 'SELECT COUNT(theatre_id) FROM theatre';
+  const response = (await db.query(query)).rows[0];
+  res.send(response);
+};
+
+module.exports = { getTotalSales, getTotalTickets, getTotalUsers, getTotalTheatres };

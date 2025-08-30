@@ -13,6 +13,11 @@
   color: #1560bd;
 }
 
+.invalid-response {
+  display: flex !important;
+  align-self: flex-start;
+}
+
 .parent {
   height: 100vh;
   display: flex;

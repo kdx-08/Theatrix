@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="admin/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a href="/" id="logo">Theatrix</a>
+        <a href="/auth/logout">Logout</a>
+      </nav>
+      <aside>
+        <div class="side-links">
+          <a href="/admin/dashboard" id="dashboard">Dashboard</a>
+          <a href="/admin/movies" id="movies">Movies</a>
+          <a href="/admin/theatres" id="theatres">Theatres</a>
+          <a href="/admin/screens" id="screens">Screens</a>
+        </div>
+      </aside>
+      <div class="greet">Welcome&nbsp;<span id="user"><%= name %></span>,</div>
+      <div class="card sales">
+        <p class="card-title">Sales</p>
+        <p class="sales-value"></p>
+      </div>
+      <div class="card tickets">
+        <p class="card-title">Tickets</p>
+        <p class="tickets-value"></p>
+      </div>
+      <div class="card users">
+        <p class="card-title">Users</p>
+        <p class="users-value"></p>
+      </div>
+      <div class="card theatres">
+        <p class="card-title">Theatres</p>
+        <p class="theatres-value"></p>
+      </div>
+      <div class="card filler">
+        <div class="card-title">Recent bookings</div>
+        <div class="booking-items">
+          <div class="booking-item"></div>
+        </div>
+      </div>
+    </div>
+    <script src="admin/script.js"></script>
+  </body>
+</html>

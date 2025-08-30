@@ -18,7 +18,6 @@ regForm?.addEventListener('submit', async (e) => {
   });
   if (!res.ok) actionResponse.classList.add('invalid-response');
   else window.location.replace(window.location.origin + '/');
-  console.log(window.location);
 });
 
 loginForm?.addEventListener('submit', async (e) => {
@@ -35,5 +34,4 @@ loginForm?.addEventListener('submit', async (e) => {
   });
   if (!res.ok) actionResponse.classList.add('invalid-response');
   else window.location.replace(window.location.origin + '/');
-  console.log(window.location);
 });
