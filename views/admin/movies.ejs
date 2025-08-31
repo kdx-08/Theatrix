@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies</title>
-    <link rel="stylesheet" href="admin/styles.css" />
+    <link rel="stylesheet" href="admin/movies.css" />
   </head>
   <body>
+    <div id="page"><%= page %></div>
     <div class="container">
       <nav>
         <a href="/" id="logo">Theatrix</a>
@@ -20,12 +21,16 @@
           <a href="/admin/screens" id="screens">Screens</a>
         </div>
       </aside>
-      <div class="card sales">Sales</div>
-      <div class="card tickets">Tickets</div>
-      <div class="card users">Users</div>
-      <div class="card theatres">Theatres</div>
-      <div class="card filler">Filler</div>
+      <div class="add-movie">
+        <p class="title">Movies</p>
+        <button class="add-btn">&plus; Add Movie</button>
+      </div>
+      <div class="movies"></div>
+      <div class="pager">
+        <button id="prev" onclick="prev">Prev</button>
+        <button id="next" onclick="next">Next</button>
+      </div>
     </div>
-    <script src="admin/script.js"></script>
+    <script src="admin/movies.js"></script>
   </body>
 </html>

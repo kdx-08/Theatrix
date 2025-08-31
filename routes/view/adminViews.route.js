@@ -13,7 +13,8 @@ app.get('/dashboard', (req, res) => {
 });
 
 app.get('/movies', (req, res) => {
-  res.render('admin/movies', req.user);
+  const page = req.query.page || 1;
+  res.render('admin/movies', { page });
 });
 
 app.get('/theatres', (req, res) => {
