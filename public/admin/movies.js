@@ -1,6 +1,11 @@
 const value = window.location.href.split('/');
 const activeLink = document.querySelector(`#${value[value.length - 1].split('?')[0]}`);
+const addMovie = document.querySelector('.add-btn');
 activeLink.classList.add('active-link');
+
+addMovie.addEventListener('click', () => {
+  window.location.replace(`${window.location.origin}/admin/add-movie`);
+});
 
 const next = () => {
   if (!window.location.href.includes('='))

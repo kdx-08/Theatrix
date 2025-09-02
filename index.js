@@ -27,7 +27,6 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 app.use('/api/auth', authRoute);
 app.use('/api/', theatreRoutes);
 app.use('/api/stats', miscRoutes);
-// app.use('/admin', adminRoutes);
 
 // View routes
 app.use('/auth', authViews);

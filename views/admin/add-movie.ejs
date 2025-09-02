@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Movie</title>
+    <link rel="stylesheet" href="admin/add-movie.css" />
+  </head>
+  <body>
+    <div class="parent">
+      <form method="post" class="form" name="movie">
+        <h2>Add Movie</h2>
+        <div class="form-inputs">
+          <div class="form-section">
+            <div class="input-form">
+              <input
+                type="text"
+                id="id"
+                name="id"
+                placeholder="Movie ID"
+                required
+                autofocus
+                maxlength="25"
+              />
+            </div>
+            <div class="input-form">
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Movie name"
+                required
+                maxlength="50"
+              />
+            </div>
+            <div class="input-form">
+              <input
+                type="number"
+                id="duration"
+                name="duration"
+                placeholder="Duration"
+                required
+                min="0"
+              />
+            </div>
+            <div class="input-form">
+              <input
+                type="text"
+                id="overview"
+                name="overview"
+                placeholder="Overview"
+                required
+                maxlength="200"
+              />
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="input-form">
+              <input
+                type="text"
+                id="lang"
+                name="lang"
+                placeholder="Language"
+                required
+                maxlength="10"
+              />
+            </div>
+            <div class="input-form">
+              <input type="number" id="rating" name="rating" placeholder="Score" required min="0" />
+            </div>
+            <div class="input-form">
+              <input
+                type="text"
+                id="poster"
+                name="poster"
+                placeholder="Poster URL"
+                required
+                maxlength="100"
+              />
+            </div>
+            <div class="input-form">
+              <input
+                type="number"
+                id="year"
+                name="year"
+                placeholder="Release year"
+                required
+                min="0"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="input-form action-response" style="display: none">
+          <p>Movie ID already exists</p>
+        </div>
+        <div class="input-form">
+          <button id="add-movie" type="submit">Add movie</button>
+        </div>
+        <div class="input-form">
+          <p><a href="/admin/movies" id="go-back">Go back</a></p>
+        </div>
+      </form>
+    </div>
+    <script src="admin/add-movie.js"></script>
+  </body>
+</html>

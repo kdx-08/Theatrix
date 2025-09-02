@@ -25,4 +25,16 @@ app.get('/screens', (req, res) => {
   res.render('admin/screens', req.user);
 });
 
+app.get('/add-movie', (req, res) => {
+  res.render('admin/add-movie');
+});
+
+app.get('/add-theatre', (req, res) => {
+  res.render('admin/add-theatre');
+});
+
+app.get('/add-screen', (req, res) => {
+  res.render('admin/add-screen');
+});
+
 module.exports = app;

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Theatres</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="admin/theatres.css" />
   </head>
   <body>
@@ -20,11 +20,14 @@
           <a href="/admin/screens" id="screens">Screens</a>
         </div>
       </aside>
-      <div class="card sales">Sales</div>
-      <div class="card tickets">Tickets</div>
-      <div class="card users">Users</div>
-      <div class="card theatres">Theatres</div>
-      <div class="card filler">Filler</div>
+      <div class="greet">
+        <p><span>Theatres</span></p>
+        <button class="add-theatre">&plus; Add theatre</button>
+      </div>
+      <div class="card filler">
+        <div class="card-title"><strong>Theatres</strong></div>
+        <div class="theatre-list"></div>
+      </div>
     </div>
     <script src="admin/theatres.js"></script>
   </body>

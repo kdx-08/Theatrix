@@ -12,6 +12,10 @@
         <a href="/" id="logo">Theatrix</a>
         <a href="/auth/logout">Logout</a>
       </nav>
+      <div class="greet">
+        <p><span>Screens</span></p>
+        <button class="add-screen">&plus; Add screen</button>
+      </div>
       <aside>
         <div class="side-links">
           <a href="/admin/dashboard" id="dashboard">Dashboard</a>
@@ -20,11 +24,10 @@
           <a href="/admin/screens" id="screens">Screens</a>
         </div>
       </aside>
-      <div class="card sales">Sales</div>
-      <div class="card tickets">Tickets</div>
-      <div class="card users">Users</div>
-      <div class="card theatres">Theatres</div>
-      <div class="card filler">Filler</div>
+      <div class="card filler">
+        <div class="card-title"><strong>Screens</strong></div>
+        <div class="screen-items"></div>
+      </div>
     </div>
     <script src="admin/screens.js"></script>
   </body>

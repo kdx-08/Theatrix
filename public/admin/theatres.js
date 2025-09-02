@@ -2,57 +2,52 @@ const value = window.location.href.split('/');
 const activeLink = document.querySelector(`#${value[value.length - 1]}`);
 activeLink.classList.add('active-link');
 
-const reloadDashboard = async () => {
-  const sales_card = document.querySelector('.sales-value');
-  const tickets_card = document.querySelector('.tickets-value');
-  const users_card = document.querySelector('.users-value');
-  const theatres_card = document.querySelector('.theatres-value');
+const addBtn = document.querySelector('.add-theatre');
+addBtn.addEventListener('click', () => {
+  window.location.replace(`${window.location.origin}/admin/add-theatre`);
+});
 
-  const sales = await fetch('/api/stats/sales', { method: 'GET' });
-  const tickets = await fetch('/api/stats/tickets', { method: 'GET' });
-  const users = await fetch('/api/stats/users', { method: 'GET' });
-  const theatres = await fetch('/api/stats/theatres', { method: 'GET' });
-
-  sales_card.innerHTML = `$${(await sales.json()).sum || 0}`;
-  tickets_card.innerHTML = `${(await tickets.json()).sum || 0}`;
-  users_card.innerHTML = `${(await users.json()).count}`;
-  theatres_card.innerHTML = `${(await theatres.json()).count}`;
-
-  const bookingItems = document.querySelector('.booking-items');
-  const recentBookings = await (await fetch('/api/stats/recent', { method: 'GET' })).json();
-  if (!recentBookings.length) {
-    const noRecent = document.createElement('p');
-    noRecent.innerHTML = 'No recent transactions found.';
-    bookingItems.classList.add('no-recent');
-    bookingItems.appendChild(noRecent);
+const reloadTheatres = async () => {
+  const theatreList = document.querySelector('.theatre-list');
+  const theatres = await (await fetch('/api/stats/theatre-list', { method: 'GET' })).json();
+  if (!theatres.length) {
+    const noTheatre = document.createElement('p');
+    noTheatre.innerHTML = 'No theatres found.';
+    theatreList.classList.add('no-theatre');
+    theatreList.appendChild(noTheatre);
   } else {
     const tableHeader = document.createElement('div');
-    tableHeader.classList.add('booking-header');
+    tableHeader.classList.add('theatre-header');
     tableHeader.innerHTML = `
-    <p>Booking ID</p>
-    <p>User ID</p>
-    <p>Show ID</p>
-    <p>Date</p>
-    <p>Tickets</p>
-    <p>Amount</p>
+    <p>Theatre ID</p>
+    <p>Name</p>
+    <p>Location</p>
+    <p>Status</p>
+    <p>Options</p>
     `;
-    bookingItems.appendChild(tableHeader);
-    console.log(recentBookings);
-    for (let i = 0; i < recentBookings.length; i++) {
-      const bookingItem = document.createElement('div');
-      bookingItem.classList.add('booking-item');
-      const { booking_date, booking_id, seat_count, show_id, total_price, user_id } =
-        recentBookings[i];
-      bookingItem.innerHTML = `
-      <p>${booking_id}</p>
-      <p>${user_id}</p>
-      <p>${show_id}</p>
-      <p>${new Date(booking_date).toUTCString().split(',').slice(1)}</p>
-      <p>${seat_count}</p>
-      <p>${total_price}</p>`;
-      bookingItems.appendChild(bookingItem);
+    theatreList.appendChild(tableHeader);
+    for (let i = 0; i < theatres.length; i++) {
+      const theatre = document.createElement('div');
+      theatre.classList.add('theatre-item');
+      const { theatre_id, name, location, status } = theatres[i];
+      theatre.innerHTML = `
+      <p>${theatre_id}</p>
+      <p>${name}</p>
+      <p>${location}</p>
+      <p>${status}</p>
+      <p><button class='remove-btn' id=${theatre_id}>&#128465;</button></p>
+      `;
+      theatreList.appendChild(theatre);
+    }
+    for (let i = 0; i < theatres.length; i++) {
+      const id = theatres[i].theatre_id;
+      const removeBtn = document.getElementById(id);
+      removeBtn.addEventListener('click', async () => {
+        await (await fetch(`/api/theatres/${id}`, { method: 'DELETE' })).json();
+        window.location.reload();
+      });
     }
   }
 };
 
-reloadDashboard();
+reloadTheatres();

@@ -75,11 +75,11 @@ const deleteTheatre = async (req, res) => {
       [theatre_id]
     );
     await db.query(
-      'DELETE FROM booking WHERE show_id IN (SELECT show_id FROM `show` WHERE screen_id IN (SELECT screen_id FROM screen WHERE theatre_id=$1))',
+      'DELETE FROM booking WHERE show_id IN (SELECT show_id FROM show WHERE screen_id IN (SELECT screen_id FROM screen WHERE theatre_id=$1))',
       [theatre_id]
     );
     await db.query(
-      'DELETE FROM `show` WHERE screen_id IN (SELECT screen_id FROM screen WHERE theatre_id=$1)',
+      'DELETE FROM show WHERE screen_id IN (SELECT screen_id FROM screen WHERE theatre_id=$1)',
       [theatre_id]
     );
     await db.query('DELETE FROM screen WHERE theatre_id=$1', [theatre_id]);
