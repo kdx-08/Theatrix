@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Theatre</title>
+    <link rel="stylesheet" href="admin/add-theatre.css" />
+  </head>
+  <body>
+    <div class="parent">
+      <form method="post" class="form" name="theatre">
+        <h2>Add Theatre</h2>
+        <div class="form-inputs">
+          <div class="form-section">
+            <div class="input-form">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Theatre name"
+                required
+                maxlength="50"
+              />
+            </div>
+            <div class="input-form">
+              <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="Location"
+                required
+                maxlength="200"
+              />
+            </div>
+            <div class="input-form">
+              <select name="status" id="status">
+                <option value="open" selected>Open</option>
+                <option value="closed">Closed</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="input-form">
+          <button id="add-theatre" type="submit">Add theatre</button>
+        </div>
+        <div class="input-form">
+          <p><a href="/admin/theatres" id="go-back">Go back</a></p>
+        </div>
+      </form>
+    </div>
+    <script src="admin/add-theatre.js"></script>
+  </body>
+</html>

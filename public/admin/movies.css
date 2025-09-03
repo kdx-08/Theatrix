@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(80, 80, 80);
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 1rem;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#page {
+  display: none;
+}
+
+.container {
+  background-color: rgb(240, 240, 240);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 60px 60px auto 30px;
+  grid-template-areas:
+    'nav nav nav nav nav'
+    'sidebar add-movie add-movie add-movie add-movie'
+    'sidebar movies movies movies movies'
+    'sidebar pager pager pager pager';
+  gap: 1rem;
+}
+
+#logo {
+  font-size: 1.25rem;
+  color: #1560bd;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: #1560bd;
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+aside {
+  border-top: 2px solid rgb(240, 240, 240);
+  margin-top: -1rem;
+  grid-area: sidebar;
+}
+
+.side-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.active-link {
+  border-color: #1560bd !important;
+  background-color: #d8eaff;
+}
+
+.side-links a {
+  border-left: 10px solid transparent;
+  padding-left: 1.5rem;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.add-movie {
+  grid-area: add-movie;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-movie .title {
+  color: #1560bd;
+  font-size: 2rem;
+}
+
+.add-movie .add-btn {
+  background-color: #1560bd;
+  color: white;
+  border: none;
+  height: 75%;
+  padding: 0rem 1rem;
+  cursor: pointer;
+}
+
+.movies {
+  grid-area: movies;
+  max-height: calc(100vh - 180px - 1.1rem);
+  margin: 0rem 1rem 0rem 0rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  row-gap: 2rem;
+  overflow-y: auto;
+}
+
+.movie {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.movie img {
+  width: 100%;
+}
+
+.movie .title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.movie .description {
+  margin: 0.75rem 0.75rem 1.25rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pager {
+  grid-area: pager;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.pager button {
+  color: #1560bd;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+nav,
+aside {
+  background-color: white;
+}

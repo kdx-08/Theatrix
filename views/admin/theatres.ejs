@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="admin/theatres.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a href="/" id="logo">Theatrix</a>
+        <a href="/auth/logout">Logout</a>
+      </nav>
+      <aside>
+        <div class="side-links">
+          <a href="/admin/dashboard" id="dashboard">Dashboard</a>
+          <a href="/admin/movies" id="movies">Movies</a>
+          <a href="/admin/theatres" id="theatres">Theatres</a>
+          <a href="/admin/screens" id="screens">Screens</a>
+          <a href="/admin/shows" id="shows">Shows</a>
+        </div>
+      </aside>
+      <div class="greet">
+        <p><span>Theatres</span></p>
+        <button class="add-theatre">&plus; Add theatre</button>
+      </div>
+      <div class="card filler">
+        <div class="card-title"><strong>Theatres</strong></div>
+        <div class="theatre-list"></div>
+      </div>
+    </div>
+    <script src="admin/theatres.js"></script>
+  </body>
+</html>

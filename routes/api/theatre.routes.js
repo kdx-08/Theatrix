@@ -1,12 +1,12 @@
 const express = require('express');
-const screenRoutes = require('../routes/screen.routes');
+const screenRoutes = require('./screen.routes');
 const {
   createTheatre,
   getTheatres,
   getTheatre,
   updateTheatre,
   deleteTheatre,
-} = require('../controllers/theatre.controller');
+} = require('../../controllers/theatre.controller');
 
 const router = express.Router();
 router.use('/theatres/:tid', screenRoutes);

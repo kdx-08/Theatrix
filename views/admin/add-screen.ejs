@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Screen</title>
+    <link rel="stylesheet" href="admin/add-screen.css" />
+  </head>
+  <body>
+    <div class="parent">
+      <form method="post" class="form" name="screen">
+        <h2>Add Screen</h2>
+        <div class="form-inputs">
+          <div class="form-section">
+            <div class="input-form">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Screen name"
+                required
+                maxlength="50"
+              />
+            </div>
+            <div class="input-form">
+              <input
+                type="number"
+                id="capacity"
+                name="capacity"
+                placeholder="Capacity"
+                required
+                max="200"
+              />
+            </div>
+            <div class="input-form">
+              <label for="type">Screen type</label>
+              <select name="type" id="type">
+                <option value="standard">Standard</option>
+                <option value="dolby">Dolby Vision</option>
+                <option value="imax">IMAX</option>
+              </select>
+            </div>
+            <div class="input-form">
+              <label for="theatre">Select theatre</label>
+              <select name="theatre" id="theatre" class="theatre-list"></select>
+            </div>
+          </div>
+        </div>
+        <div class="input-form">
+          <button id="add-screen" type="submit">Add screen</button>
+        </div>
+        <div class="input-form">
+          <p><a href="/admin/screens" id="go-back">Go back</a></p>
+        </div>
+      </form>
+    </div>
+    <script src="admin/add-screen.js"></script>
+  </body>
+</html>

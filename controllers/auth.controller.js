@@ -24,7 +24,7 @@ const registerRoute = async (req, res) => {
       const hashedPassword = await bcrypt.hash(password, 12);
       const query = `INSERT INTO users VALUES ($1,$2,$3,$4,$5,$6)`;
       await db.query(query, [user_id, name, email, hashedPassword, phone, new Date()]);
-      const token = generateToken(user.user_id, user.email, user.name);
+      const token = generateToken(user_id, email, name);
       res
         .cookie('token', token, {
           httpOnly: true,
@@ -67,6 +67,8 @@ const loginRoute = async (req, res) => {
 };
 
 const logoutRoute = (req, res) => {
+  const cookie = req.cookies.token;
+  if (!cookie) return res.status(400).json({ message: 'no account found' });
   res.status(200).clearCookie('token').json({ message: 'logged out successfully' });
 };
 

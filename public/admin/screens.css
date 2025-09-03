@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(80, 80, 80);
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 1rem;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  background-color: rgb(240, 240, 240);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 60px 60px auto;
+  grid-template-areas:
+    'nav nav nav nav nav'
+    'sidebar greet greet greet greet'
+    'sidebar filler filler filler filler';
+  gap: 1rem;
+}
+
+#logo {
+  font-size: 1.25rem;
+  color: #1560bd;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: #1560bd;
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.greet,
+.greet p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-area: greet;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.greet span {
+  color: #1560bd;
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+aside {
+  border-top: 2px solid rgb(240, 240, 240);
+  margin-top: -1rem;
+  grid-area: sidebar;
+}
+
+.side-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.active-link {
+  border-color: #1560bd !important;
+  background-color: #d8eaff;
+}
+
+.side-links a {
+  border-left: 10px solid transparent;
+  padding-left: 1.5rem;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filler {
+  max-height: calc(100vh - 120px - 3rem);
+  grid-area: filler;
+  margin-right: 1rem;
+}
+
+nav,
+aside,
+.filler {
+  background-color: white;
+}
+
+.no-recent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60%;
+}
+
+.screen-items {
+  overflow: auto;
+  margin-top: 1rem;
+}
+
+.screen-header {
+  background-color: rgb(240, 240, 240);
+  border: 2px solid rgb(240, 240, 240) !important;
+}
+
+.screen-header,
+.screen-item {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1.5fr 1fr 1fr 0.5fr;
+  padding: 1rem 0rem 1rem 1rem;
+  font-weight: bold;
+  border-left: 2px solid rgb(240, 240, 240);
+  border-right: 2px solid rgb(240, 240, 240);
+  border-bottom: 2px solid rgb(240, 240, 240);
+  align-items: center;
+}
+
+.remove-btn {
+  color: white;
+  background-color: red;
+  border: none;
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-screen {
+  color: white;
+  background-color: #1560bd;
+  border: none;
+  height: 75%;
+  padding: 0rem 1rem;
+  cursor: pointer;
+}

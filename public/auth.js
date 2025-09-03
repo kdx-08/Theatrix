@@ -1,6 +1,7 @@
 const regForm = document.forms.register;
 const loginForm = document.forms.login;
 const actionResponse = document.querySelector('.action-response');
+
 regForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const name = regForm.username.value;
@@ -17,7 +18,6 @@ regForm?.addEventListener('submit', async (e) => {
   });
   if (!res.ok) actionResponse.classList.add('invalid-response');
   else window.location.replace(window.location.origin + '/');
-  console.log(window.location);
 });
 
 loginForm?.addEventListener('submit', async (e) => {
@@ -34,5 +34,4 @@ loginForm?.addEventListener('submit', async (e) => {
   });
   if (!res.ok) actionResponse.classList.add('invalid-response');
   else window.location.replace(window.location.origin + '/');
-  console.log(window.location);
 });

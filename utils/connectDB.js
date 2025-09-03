@@ -1,4 +1,4 @@
-const _ = require('dotenv').config({ path: '../.env' });
+const _ = require('dotenv').config();
 const pg = require('pg');
 
 const db = new pg.Client({
@@ -7,5 +7,4 @@ const db = new pg.Client({
 });
 
 db.connect();
-
 module.exports = db;
