@@ -37,4 +37,12 @@ app.get('/add-screen', (req, res) => {
   res.render('admin/add-screen');
 });
 
+app.get('/shows', (req, res) => {
+  res.render('admin/shows');
+});
+
+app.get('/add-show', (req, res) => {
+  res.render('admin/add-show');
+});
+
 module.exports = app;

@@ -7,6 +7,7 @@ const path = require('path');
 
 const authRoute = require('./routes/api/auth.routes');
 const theatreRoutes = require('./routes/api/theatre.routes');
+const showRoutes = require('./routes/api/show.routes');
 const miscRoutes = require('./routes/api/misc.route');
 
 const authViews = require('./routes/view/authViews.route');
@@ -26,6 +27,7 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 // API routes
 app.use('/api/auth', authRoute);
 app.use('/api/', theatreRoutes);
+app.use('/api/', showRoutes);
 app.use('/api/stats', miscRoutes);
 
 // View routes

@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="admin/theatres.css" />
+    <title>Shows</title>
+    <link rel="stylesheet" href="admin/shows.css" />
   </head>
   <body>
     <div class="container">
@@ -12,6 +12,10 @@
         <a href="/" id="logo">Theatrix</a>
         <a href="/auth/logout">Logout</a>
       </nav>
+      <div class="greet">
+        <p><span>Shows</span></p>
+        <button class="add-show">&plus; Add Show</button>
+      </div>
       <aside>
         <div class="side-links">
           <a href="/admin/dashboard" id="dashboard">Dashboard</a>
@@ -21,15 +25,11 @@
           <a href="/admin/shows" id="shows">Shows</a>
         </div>
       </aside>
-      <div class="greet">
-        <p><span>Theatres</span></p>
-        <button class="add-theatre">&plus; Add theatre</button>
-      </div>
       <div class="card filler">
-        <div class="card-title"><strong>Theatres</strong></div>
-        <div class="theatre-list"></div>
+        <div class="card-title"><strong>Shows</strong></div>
+        <div class="show-items"></div>
       </div>
     </div>
-    <script src="admin/theatres.js"></script>
+    <script src="admin/shows.js"></script>
   </body>
 </html>

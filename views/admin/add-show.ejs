@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Show</title>
+    <link rel="stylesheet" href="admin/add-show.css" />
+  </head>
+  <body>
+    <div class="parent">
+      <form method="post" class="form" name="show">
+        <h2>Add Show</h2>
+        <div class="form-inputs">
+          <div class="form-section">
+            <div class="input-form">
+              <input
+                type="text"
+                id="movie_id"
+                name="movie_id"
+                placeholder="Movie ID"
+                required
+                maxlength="50"
+              />
+            </div>
+            <div class="input-form">
+              <input
+                type="number"
+                id="price"
+                name="price"
+                placeholder="Price"
+                required
+                max="1000"
+                min="1"
+              />
+            </div>
+            <div class="input-form">
+              <input type="datetime-local" id="time" name="time" placeholder="Show time" required />
+            </div>
+            <div class="input-form">
+              <label for="theatre">Select theatre</label>
+              <select name="theatre" id="theatre" class="theatre-list" required>
+                <option value="" disabled selected>Choose theatre</option>
+              </select>
+            </div>
+            <div class="input-form">
+              <label for="type">Select screen</label>
+              <select name="screens" id="screens" required></select>
+            </div>
+          </div>
+        </div>
+        <div class="input-form">
+          <button id="add-show" type="submit">Add show</button>
+        </div>
+        <div class="input-form">
+          <p><a href="/admin/shows" id="go-back">Go back</a></p>
+        </div>
+      </form>
+    </div>
+    <script src="admin/add-show.js"></script>
+  </body>
+</html>

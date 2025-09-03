@@ -11,6 +11,7 @@ const {
   addTheatre,
   getScreens,
   addScreen,
+  getShows,
 } = require('../../controllers/misc.controller');
 
 const app = express.Router();
@@ -26,5 +27,6 @@ app.get('/theatre-list', getTheatres);
 app.post('/add-theatre', addTheatre);
 app.get('/screen-list', getScreens);
 app.post('/add-screen', addScreen);
+app.get('/show-list', getShows);
 
 module.exports = app;
