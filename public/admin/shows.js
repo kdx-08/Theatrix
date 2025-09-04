@@ -41,11 +41,10 @@ const reloadShows = async () => {
       showItems.appendChild(showItem);
     }
     for (let i = 0; i < shows.length; i++) {
-      const id = shows[i].screen_id;
-      const theatre_id = shows[i].theatre_id;
+      const id = shows[i].show_id;
       const removeBtn = document.getElementById(id);
       removeBtn.addEventListener('click', async () => {
-        await (await fetch(`/api/theatres/${theatre_id}/shows/${id}`, { method: 'DELETE' })).json();
+        await fetch(`/api/shows/${id}`, { method: 'DELETE' });
         window.location.reload();
       });
     }

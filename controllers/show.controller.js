@@ -27,11 +27,11 @@ const addShow = async (req, res) => {
 };
 
 const deleteShow = async (req, res) => {
-  const { show_id } = req.body;
-  if (!show_id) return res.sendStatus(400);
+  const { sid } = req.params;
+  if (!sid) return res.sendStatus(400);
   try {
     const query = 'DELETE FROM show WHERE show_id=$1';
-    await db.query(query, [show_id]);
+    await db.query(query, [sid]);
     return res.sendStatus(200);
   } catch (error) {
     console.log(error);
