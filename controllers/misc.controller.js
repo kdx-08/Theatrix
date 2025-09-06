@@ -102,7 +102,7 @@ const addScreen = async (req, res) => {
 
 const getShows = async (req, res) => {
   const query =
-    'SELECT m.title, t.name, sc.screen_name, sh.show_id, sh.show_time, sh.price FROM movie m JOIN show sh ON m.movie_id=sh.movie_id JOIN screen sc ON sh.screen_id=sc.screen_id JOIN theatre t ON sc.theatre_id=t.theatre_id';
+    'SELECT m.title, sh.movie_id, m.poster, t.name, sc.screen_name, sh.show_id, sh.show_time, sh.price FROM movie m JOIN show sh ON m.movie_id=sh.movie_id JOIN screen sc ON sh.screen_id=sc.screen_id JOIN theatre t ON sc.theatre_id=t.theatre_id';
   try {
     const response = (await db.query(query)).rows;
     return res.send(response);

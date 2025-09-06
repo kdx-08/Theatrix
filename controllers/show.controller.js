@@ -39,4 +39,20 @@ const deleteShow = async (req, res) => {
   }
 };
 
-module.exports = { getShows, addShow, deleteShow };
+const getMovieShows = async (req, res) => {
+  const { mid } = req.params;
+  if (!mid) {
+    res.sendStatus(400);
+  }
+  try {
+    const query =
+      'select t.name, sc.theatre_id, sh.price, sh.show_time from show sh join screen sc on sc.screen_id = sh.screen_id join theatre t on t.theatre_id = sc.theatre_id where movie_id=$1';
+    const response = (await db.query(query, [mid])).rows;
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+};
+
+module.exports = { getShows, addShow, deleteShow, getMovieShows };

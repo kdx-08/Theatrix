@@ -28,5 +28,6 @@ app.post('/add-theatre', addTheatre);
 app.get('/screen-list', getScreens);
 app.post('/add-screen', addScreen);
 app.get('/show-list', getShows);
+app.get('/showDetails', getShows);
 
 module.exports = app;
