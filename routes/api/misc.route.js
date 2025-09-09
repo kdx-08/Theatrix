@@ -12,6 +12,7 @@ const {
   getScreens,
   addScreen,
   getShows,
+  getMoviebyId,
 } = require('../../controllers/misc.controller');
 
 const app = express.Router();
@@ -29,5 +30,6 @@ app.get('/screen-list', getScreens);
 app.post('/add-screen', addScreen);
 app.get('/show-list', getShows);
 app.get('/showDetails', getShows);
+app.get('/movieName/:mid', getMoviebyId);
 
 module.exports = app;

@@ -4,9 +4,10 @@ function login() {
 
 const listMovies = async () => {
   const shows = await (await fetch('/api/stats/show-list', { method: 'GET' })).json();
-
+  const set = new Set(shows);
+  const show = Array.from(set);
   const item_div = document.querySelector('.carousel-inner');
-  shows.forEach((element, index) => {
+  show.forEach((element, index) => {
     const item = document.createElement('div');
     item.classList.add('carousel-item');
     if (index == 0) {
