@@ -109,6 +109,7 @@ aside {
   max-height: calc(100vh - 360px - 3rem);
   grid-area: filler;
   margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 .sales-value,
