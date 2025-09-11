@@ -1,5 +1,6 @@
 const { v7 } = require('uuid');
 const db = require('../utils/connectDB');
+const { response } = require('express');
 
 const getTotalSales = async (req, res) => {
   const query = 'SELECT SUM(total_price) FROM booking';
@@ -112,6 +113,18 @@ const getShows = async (req, res) => {
   }
 };
 
+const getMoviebyId = async (req, res) => {
+  const { mid } = req.params;
+  const query = `select title from movie where movie_id=$1`;
+  try {
+    const response = (await db.query(query, [mid])).rows;
+    res.status(200).json(response);
+  } catch (err) {
+    console.log(err);
+    return res.sendStatus(500);
+  }
+};
+
 module.exports = {
   getTotalSales,
   getTotalTickets,
@@ -125,4 +138,5 @@ module.exports = {
   getScreens,
   addScreen,
   getShows,
+  getMoviebyId,
 };
