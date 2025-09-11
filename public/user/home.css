@@ -1,7 +1,12 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background-color: #ffffff;
   background-image: url('https://www.transparenttextures.com/patterns/axiom-pattern.png');
 }
+
 .container-xxl {
   display: flex;
   justify-content: center;
@@ -9,6 +14,7 @@ body {
   flex-direction: column;
   max-width: 1500px;
 }
+
 .carousel-main {
   width: 100%;
   padding: 0.5rem;
@@ -17,6 +23,7 @@ body {
   align-items: center;
   margin: 1rem;
 }
+
 .carousel-inner {
   border-radius: 0.75em;
 }
@@ -30,6 +37,7 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
 .logo-div {
   align-content: end;
 }
