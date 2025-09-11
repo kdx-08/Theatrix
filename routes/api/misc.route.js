@@ -5,6 +5,7 @@ const {
   getTotalUsers,
   getTotalTheatres,
   getRecentBookings,
+  getAllBookings,
   getMovies,
   addMovie,
   getTheatres,
@@ -29,5 +30,6 @@ app.get('/screen-list', getScreens);
 app.post('/add-screen', addScreen);
 app.get('/show-list', getShows);
 app.get('/showDetails', getShows);
+app.get('/bookings', getAllBookings);
 
 module.exports = app;

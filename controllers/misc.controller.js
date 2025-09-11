@@ -31,6 +31,12 @@ const getRecentBookings = async (req, res) => {
   res.send(response);
 };
 
+const getAllBookings = async (req, res) => {
+  const query = 'SELECT * FROM booking ORDER BY booking_date DESC';
+  const response = (await db.query(query)).rows;
+  res.send(response);
+};
+
 const getMovies = async (req, res) => {
   const page = req.query.page;
   const query = `SELECT * FROM movie ORDER BY release_year DESC LIMIT 12 OFFSET ${(page - 1) * 12}`;
@@ -118,6 +124,7 @@ module.exports = {
   getTotalUsers,
   getTotalTheatres,
   getRecentBookings,
+  getAllBookings,
   getMovies,
   addMovie,
   getTheatres,

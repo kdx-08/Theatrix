@@ -2,15 +2,14 @@ const jwt = require('jsonwebtoken');
 
 const checkAdmin = (req, res, next) => {
   const token = req.cookies.token;
-  if (!token) return res.status(401).json({ message: 'access denied' });
+  if (!token) return res.sendStatus(401);
   try {
     const decoded = jwt.decode(token);
     req.user = decoded;
-    if (req.user.email !== process.env.ADMIN)
-      return res.status(403).json({ message: 'access denied' });
+    if (req.user.email !== process.env.ADMIN) return res.sendStatus(403);
     next();
   } catch (error) {
-    res.status(400).json('invalid token');
+    res.sendStatus(400);
   }
 };
 
@@ -22,7 +21,7 @@ const checkAuth = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (error) {
-    res.status(400).json({ message: 'invalid token' });
+    res.sendStatus(400);
   }
 };
 
