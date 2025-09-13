@@ -2,6 +2,19 @@ const listAvailable = async () => {
   const movieId = window.location.href.split('?')[1];
   const details = await (await fetch(`/api/showDetails/${movieId}`, { method: 'GET' })).json();
   const movie = await (await fetch(`/api/stats/movieName/${movieId}`, { method: 'GET' })).json();
+
+  const wrapper = document.querySelector('.wrapper');
+  //poster.style.backgroundImage = `url(${movie.poster})`;
+  const img = document.createElement('img');
+  img.setAttribute('src', `${movie[0].poster}`);
+  wrapper.appendChild(img);
+
+  const desc = document.querySelector('.desc');
+  desc.innerHTML = `<h1>${movie[0].title}<h1>
+                    <p>${movie[0].genre}</p>
+  `;
+  wrapper.appendChild(desc);
+
   const item_div = document.querySelector('.container');
   const theatres = new Map();
   for (let detail of details) {
@@ -10,7 +23,7 @@ const listAvailable = async () => {
   for (let detail of details) {
     theatres.get(detail.theatre_id).push(`${detail.show_time} ₹${detail.price}`);
   }
-  item_div.innerHTML = `<h1>${movie[0].title}<h1>`;
+
   theatres.forEach((element, key) => {
     const theatreRow = document.createElement('div');
     const theatreName = document.createElement('h2');

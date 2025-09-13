@@ -115,7 +115,7 @@ const getShows = async (req, res) => {
 
 const getMoviebyId = async (req, res) => {
   const { mid } = req.params;
-  const query = `select title from movie where movie_id=$1`;
+  const query = `select title, poster, genre from movie where movie_id=$1`;
   try {
     const response = (await db.query(query, [mid])).rows;
     res.status(200).json(response);
