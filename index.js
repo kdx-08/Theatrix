@@ -12,6 +12,7 @@ const miscRoutes = require('./routes/api/misc.route');
 
 const authViews = require('./routes/view/authViews.route');
 const adminViews = require('./routes/view/adminViews.route');
+const userViews = require('./routes/view/userViews.route');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -33,15 +34,7 @@ app.use('/api/stats', miscRoutes);
 // View routes
 app.use('/auth', authViews);
 app.use('/admin', checkAdmin, adminViews);
-
-app.get('/', partialCheck, (req, res) => {
-  const user = { user_id: '', name: '', email: '' };
-  if (req.user) {
-    return res.render('index', req.user);
-  } else {
-    return res.render('index', user);
-  }
-});
+app.use('/', userViews);
 
 app.listen(PORT, () => {
   console.log('server is running at port', PORT);

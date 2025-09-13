@@ -1,5 +1,6 @@
 const { v7 } = require('uuid');
 const db = require('../utils/connectDB');
+const { response } = require('express');
 
 const getTotalSales = async (req, res) => {
   const query = 'SELECT SUM(total_price) FROM booking';
@@ -102,12 +103,24 @@ const addScreen = async (req, res) => {
 
 const getShows = async (req, res) => {
   const query =
-    'SELECT m.title, t.name, sc.screen_name, sh.show_id, sh.show_time, sh.price FROM movie m JOIN show sh ON m.movie_id=sh.movie_id JOIN screen sc ON sh.screen_id=sc.screen_id JOIN theatre t ON sc.theatre_id=t.theatre_id';
+    'SELECT m.title, sh.movie_id, m.poster, t.name, sc.screen_name, sh.show_id, sh.show_time, sh.price FROM movie m JOIN show sh ON m.movie_id=sh.movie_id JOIN screen sc ON sh.screen_id=sc.screen_id JOIN theatre t ON sc.theatre_id=t.theatre_id';
   try {
     const response = (await db.query(query)).rows;
     return res.send(response);
   } catch (error) {
     console.log(error);
+    return res.sendStatus(500);
+  }
+};
+
+const getMoviebyId = async (req, res) => {
+  const { mid } = req.params;
+  const query = `select title, poster, genre from movie where movie_id=$1`;
+  try {
+    const response = (await db.query(query, [mid])).rows;
+    res.status(200).json(response);
+  } catch (err) {
+    console.log(err);
     return res.sendStatus(500);
   }
 };
@@ -125,4 +138,5 @@ module.exports = {
   getScreens,
   addScreen,
   getShows,
+  getMoviebyId,
 };

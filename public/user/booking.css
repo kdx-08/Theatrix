@@ -1,0 +1,77 @@
+body {
+  background-color: #ffffff;
+  background-image: url('https://www.transparenttextures.com/patterns/axiom-pattern.png');
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 60vh; /* theatre-style height */
+  overflow: hidden; /* hide bottom overflow */
+  margin-left: calc(-1 * (100vw - 100%) / 2);
+}
+
+.wrapper img {
+  width: 100%; /* cover full width */
+  height: 100%; /* fill wrapper height */
+  object-fit: cover; /* crop sides/bottom, keep top visible */
+  object-position: center;
+  display: block;
+}
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%; /* cover full height */
+  width: 40%; /* gradient area (adjust as needed) */ /* vertical center text */
+  padding-left: 2rem; /* spacing from the edge */
+  color: #fff;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
+}
+
+.desc h1 {
+  margin: 0;
+  font-size: 2rem; /* adjust for screen size */
+  font-weight: bold;
+}
+
+.desc p {
+  margin: 0;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+.theatre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin: 1rem;
+  max-width: 10rem;
+  background-color: #f0f8ff;
+  border-left: solid 4px #1560bd;
+  border-radius: 6px;
+}
