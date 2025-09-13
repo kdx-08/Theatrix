@@ -2,11 +2,13 @@ function login() {
   window.location.href = '/auth/login';
 }
 
-const listMovies = async () => {
+const carousel = async () => {
   const shows = await (await fetch('/api/stats/show-list', { method: 'GET' })).json();
 
+  const set = new Set(shows);
+  const show = Array.from(set);
   const item_div = document.querySelector('.carousel-inner');
-  shows.forEach((element, index) => {
+  show.forEach((element, index) => {
     const item = document.createElement('div');
     item.classList.add('carousel-item');
     if (index == 0) {
@@ -28,4 +30,32 @@ const listMovies = async () => {
   });
 };
 
+const listMovies = async () => {
+  const movies = await (await fetch(`/api/stats/movies?page=3`, { method: 'GET' })).json();
+  console.log(movies);
+  const listContainer = document.querySelector('.movie-row');
+  movies.forEach((element) => {
+    const item = document.createElement('div');
+    item.classList.add('col-3', 'position-relative');
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('position-relative');
+    const desc = document.createElement('div');
+    desc.classList.add('desc');
+    const title = document.createElement('h6');
+    const rating = document.createElement('p');
+    title.innerHTML = `${element.title}`;
+    rating.innerHTML = `rating: ${element.rating}`;
+    desc.appendChild(title);
+    desc.appendChild(rating);
+    const img = document.createElement('img');
+    img.setAttribute('src', `${element.poster}`);
+    img.classList.add('img-fluid');
+    wrapper.appendChild(img);
+    wrapper.appendChild(desc);
+    item.appendChild(wrapper);
+    listContainer.appendChild(item);
+  });
+};
+
+carousel();
 listMovies();
