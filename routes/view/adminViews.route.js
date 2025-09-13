@@ -45,4 +45,8 @@ app.get('/add-show', (req, res) => {
   res.render('admin/add-show');
 });
 
+app.get('/bookings', (req, res) => {
+  res.render('admin/bookings');
+});
+
 module.exports = app;
