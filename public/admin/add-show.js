@@ -32,9 +32,7 @@ showForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const movie_id = showForm.movie_id.value;
   const screen_id = showForm.screens.value;
-  console.log(screen_id);
   const show_time = new Date(showForm.time.value);
-  console.log(show_time);
   const price = showForm.price.value;
 
   const res = await fetch('/api/shows/', {

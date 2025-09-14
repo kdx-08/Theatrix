@@ -2,12 +2,13 @@ const _ = require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const { partialCheck, checkAdmin } = require('./middlewares/auth.middleware');
+const { checkAdmin, checkAuth } = require('./middlewares/auth.middleware');
 const path = require('path');
 
 const authRoute = require('./routes/api/auth.routes');
 const theatreRoutes = require('./routes/api/theatre.routes');
 const showRoutes = require('./routes/api/show.routes');
+const bookingRoutes = require('./routes/api/booking.routes');
 const miscRoutes = require('./routes/api/misc.route');
 
 const authViews = require('./routes/view/authViews.route');
@@ -27,14 +28,15 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 
 // API routes
 app.use('/api/auth', authRoute);
-app.use('/api/', theatreRoutes);
-app.use('/api/', showRoutes);
-app.use('/api/stats', miscRoutes);
+app.use('/api/', checkAuth, theatreRoutes);
+app.use('/api/', checkAuth, showRoutes);
+app.use('/api/stats', checkAuth, miscRoutes);
+app.use('/api/', checkAuth, bookingRoutes);
 
 // View routes
 app.use('/auth', authViews);
 app.use('/admin', checkAdmin, adminViews);
-app.use('/', userViews);
+app.use('/', checkAuth, userViews);
 
 app.listen(PORT, () => {
   console.log('server is running at port', PORT);

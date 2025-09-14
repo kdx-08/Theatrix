@@ -13,7 +13,7 @@ const reloadDashboard = async () => {
   const users = await fetch('/api/stats/users', { method: 'GET' });
   const theatres = await fetch('/api/stats/theatres', { method: 'GET' });
 
-  sales_card.innerHTML = `$${(await sales.json()).sum || 0}`;
+  sales_card.innerHTML = `₹${(await sales.json()).sum || 0}`;
   tickets_card.innerHTML = `${(await tickets.json()).sum || 0}`;
   users_card.innerHTML = `${(await users.json()).count}`;
   theatres_card.innerHTML = `${(await theatres.json()).count}`;

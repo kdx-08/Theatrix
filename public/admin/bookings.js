@@ -5,7 +5,6 @@ activeLink.classList.add('active-link');
 const reloadBookings = async () => {
   const bookingItems = document.querySelector('.booking-items');
   const bookings = await (await fetch('/api/stats/bookings', { method: 'GET' })).json();
-  console.log(bookings);
   if (!bookings.length) {
     const noRecent = document.createElement('p');
     noRecent.innerHTML = 'No bookings found.';
@@ -15,25 +14,22 @@ const reloadBookings = async () => {
     const tableHeader = document.createElement('div');
     tableHeader.classList.add('booking-header');
     tableHeader.innerHTML = `
-    <p>Movie name</p>
-    <p>Theatre name</p>
-    <p>Screen name</p>
-    <p>Time</p>
+    <p>Booking ID</p>
+    <p>User ID</p>
+    <p>Show ID</p>
+    <p>Date</p>
     <p>Price</p>
-    <p>Options</p>
     `;
     bookingItems.appendChild(tableHeader);
     for (let i = 0; i < bookings.length; i++) {
       const bookingItem = document.createElement('div');
       bookingItem.classList.add('booking-item');
-      const { title, name, screen_name, show_time, price } = bookings[i];
       bookingItem.innerHTML = `
-      <p>${title}</p>
-      <p>${name}</p>
-      <p>${screen_name}</p>
-      <p>${new Date(show_time).toDateString()}</p>
-      <p>${price}</p>
-      <p><button class='remove-btn' id=${bookings[i].show_id}>&#128465;</button></p>`;
+      <p>${bookings[i].booking_id}</p>
+      <p>${bookings[i].user_id}</p>
+      <p>${bookings[i].show_id}</p>
+      <p>${new Date(bookings[i].booking_date).toLocaleDateString()}</p>
+      <p>₹${bookings[i].total_price}</p>`;
       bookingItems.appendChild(bookingItem);
     }
   }

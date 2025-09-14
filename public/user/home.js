@@ -4,7 +4,6 @@ function login() {
 
 const carousel = async () => {
   const shows = await (await fetch('/api/stats/show-list', { method: 'GET' })).json();
-
   const set = new Set(shows);
   const show = Array.from(set);
   const item_div = document.querySelector('.carousel-inner');
@@ -32,10 +31,9 @@ const carousel = async () => {
 
 const listMovies = async () => {
   const movies = await (await fetch(`/api/stats/movies?page=3`, { method: 'GET' })).json();
-  console.log(movies);
   const listContainer = document.querySelector('.movie-row');
   movies.forEach((element) => {
-    const item = document.createElement('div');
+    const item = document.createElement('a');
     item.classList.add('col-3', 'position-relative');
     const wrapper = document.createElement('div');
     wrapper.classList.add('position-relative');
@@ -53,6 +51,7 @@ const listMovies = async () => {
     wrapper.appendChild(img);
     wrapper.appendChild(desc);
     item.appendChild(wrapper);
+    item.href = `https://themoviedb.org/movie/${element.movie_id}`;
     listContainer.appendChild(item);
   });
 };

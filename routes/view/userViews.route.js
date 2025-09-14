@@ -13,4 +13,14 @@ app.get('/showDetails', (req, res) => {
   res.render('user/booking');
 });
 
+app.get('/movies/:id', async (req, res) => {
+  const { id } = req.params;
+  res.redirect(`https://www.themoviedb.org/movie/${id}`);
+});
+
+app.get('/payment', async (req, res) => {
+  const { show_id } = req.query;
+  res.render('user/payment', { show_id });
+});
+
 module.exports = app;

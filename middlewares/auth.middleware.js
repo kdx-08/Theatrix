@@ -15,13 +15,13 @@ const checkAdmin = (req, res, next) => {
 
 const checkAuth = (req, res, next) => {
   const token = req.cookies.token;
-  if (!token) return res.status(401).json({ message: 'access denied' });
+  if (!token) return res.redirect('/auth/login');
   try {
     const decoded = jwt.decode(token);
     req.user = decoded;
     next();
   } catch (error) {
-    res.sendStatus(400);
+    res.sendStatus(500);
   }
 };
 

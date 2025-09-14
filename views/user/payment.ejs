@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="/user/payment.css" />
+  </head>
+  <body>
+    <div class="payment-header">
+      <a id="back">&lt;</a>
+      <div class="desc">
+        <h2 id="movie-title" style="font-weight: normal"></h2>
+        <p id="movie-desc"></p>
+      </div>
+    </div>
+    <p id="show-id" style="display: none"><%= show_id %></p>
+    <div class="container">
+      <div class="movie">
+        <div class="poster">
+          <img id="movie-poster" alt="poster" />
+        </div>
+        <div class="description">
+          <div class="major">
+            <p class="movie-name"></p>
+            <p class="details"></p>
+          </div>
+          <p class="overview">Overview</p>
+          <p class="about"></p>
+        </div>
+      </div>
+      <div class="cart">
+        <div class="cart-summary">
+          <p class="cart-title">Your Cart</p>
+          <div class="cart-items">
+            <label for="seats" id="seat-label"></label>
+            <input type="number" name="seats" id="seats" min="1" max="10" required value="1" />
+          </div>
+        </div>
+        <div class="ticket-summary">
+          <p>Ticket(s) price</p>
+          <div class="price-desc">
+            <p id="ticket-price"></p>
+            <p id="tax">(incl. of taxes)</p>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="cancel">Cancel</button>
+          <button id="confirm">Confirm</button>
+        </div>
+      </div>
+    </div>
+    <script src="/user/payment.js"></script>
+  </body>
+</html>

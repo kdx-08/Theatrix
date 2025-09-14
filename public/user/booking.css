@@ -6,6 +6,11 @@ body {
   display: none;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .wrapper {
   width: 100vw;
   height: 60vh; /* theatre-style height */
@@ -20,6 +25,7 @@ body {
   object-position: center;
   display: block;
 }
+
 .wrapper {
   position: relative;
   width: 100%;
