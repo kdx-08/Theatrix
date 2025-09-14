@@ -1,5 +1,6 @@
 const { v7 } = require('uuid');
 const db = require('../utils/connectDB');
+const refreshMovies = require('../utils/refreshMovies');
 
 const getTotalSales = async (req, res) => {
   const query = 'SELECT SUM(total_price) FROM booking';
@@ -39,7 +40,7 @@ const getAllBookings = async (req, res) => {
 
 const getMovies = async (req, res) => {
   const page = req.query.page;
-  const query = `SELECT * FROM movie ORDER BY release_year DESC LIMIT 12 OFFSET ${(page - 1) * 12}`;
+  const query = `SELECT * FROM movie ORDER BY RANDOM() LIMIT 12 OFFSET ${(page - 1) * 12}`;
   const response = (await db.query(query)).rows;
   res.send(response);
 };
@@ -130,6 +131,10 @@ const getMoviebyId = async (req, res) => {
   }
 };
 
+const refresh = async (req, res) => {
+  refreshMovies();
+};
+
 module.exports = {
   getTotalSales,
   getTotalTickets,
@@ -145,4 +150,5 @@ module.exports = {
   addScreen,
   getShows,
   getMoviebyId,
+  refresh,
 };

@@ -85,13 +85,20 @@ aside {
   font-size: 2rem;
 }
 
-.add-movie .add-btn {
+.add-movie button {
   background-color: #1560bd;
   color: white;
   border: none;
-  height: 75%;
   padding: 0rem 1rem;
   cursor: pointer;
+  height: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  gap: 1rem;
 }
 
 .movies {
@@ -111,6 +118,8 @@ aside {
 
 .movie img {
   width: 100%;
+  height: 300px;
+  object-fit: scale-down;
 }
 
 .movie .title {

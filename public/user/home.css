@@ -66,8 +66,8 @@ body {
 .movie-row .col-3 img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 6px;
+  height: 300px;
+  object-fit: cover;
   cursor: pointer;
 }
 

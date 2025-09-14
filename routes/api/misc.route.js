@@ -14,6 +14,7 @@ const {
   addScreen,
   getShows,
   getMoviebyId,
+  refresh,
 } = require('../../controllers/misc.controller');
 
 const app = express.Router();
@@ -33,5 +34,6 @@ app.get('/show-list', getShows);
 app.get('/showDetails', getShows);
 app.get('/bookings', getAllBookings);
 app.get('/movieName/:mid', getMoviebyId);
+app.get('/refresh', refresh);
 
 module.exports = app;

@@ -1,4 +1,4 @@
-const _ = require('dotenv').config();
+const _ = require('dotenv').config({ path: '../.env' });
 const pg = require('pg');
 
 const db = new pg.Client({

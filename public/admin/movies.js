@@ -1,10 +1,16 @@
 const value = window.location.href.split('/');
 const activeLink = document.querySelector(`#${value[value.length - 1].split('?')[0]}`);
 const addMovie = document.querySelector('.add-btn');
+const refreshMovies = document.getElementById('refresh');
 activeLink.classList.add('active-link');
 
 addMovie.addEventListener('click', () => {
   window.location.replace(`${window.location.origin}/admin/add-movie`);
+});
+
+refreshMovies.addEventListener('click', async () => {
+  const res = await fetch('/api/stats/refresh', { method: 'GET' });
+  console.log(res);
 });
 
 const next = () => {
