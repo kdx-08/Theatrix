@@ -23,4 +23,8 @@ app.get('/payment', async (req, res) => {
   res.render('user/payment', { show_id });
 });
 
+app.get('/addfeedback', (req, res) => {
+  res.render('user/feedback');
+});
+
 module.exports = app;

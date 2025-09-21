@@ -19,4 +19,20 @@ const bookShow = async (req, res) => {
   }
 };
 
-module.exports = { bookShow };
+const addfeedback = async (req, res) => {
+  const feedback_id = v7();
+  const { rating, feedback } = req.body;
+  const user_id = req.user.user_id;
+  const date = new Date();
+
+  try {
+    const query = `insert into feedback values($1,$2,$3,$4,$5)`;
+    await db.query(query, [feedback_id, user_id, rating, feedback, date]);
+    res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
+};
+
+module.exports = { bookShow, addfeedback };

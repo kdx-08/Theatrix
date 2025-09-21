@@ -13,15 +13,15 @@ a {
 
 .wrapper {
   width: 100vw;
-  height: 60vh; /* theatre-style height */
-  overflow: hidden; /* hide bottom overflow */
+  height: 60vh;
+  overflow: hidden;
   margin-left: calc(-1 * (100vw - 100%) / 2);
 }
 
 .wrapper img {
-  width: 100%; /* cover full width */
-  height: 100%; /* fill wrapper height */
-  object-fit: cover; /* crop sides/bottom, keep top visible */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
   display: block;
 }
@@ -41,16 +41,16 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%; /* cover full height */
-  width: 40%; /* gradient area (adjust as needed) */ /* vertical center text */
-  padding-left: 2rem; /* spacing from the edge */
+  height: 100%;
+  width: 40%;
+  padding-left: 2rem;
   color: #fff;
   background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
 }
 
 .desc h1 {
   margin: 0;
-  font-size: 2rem; /* adjust for screen size */
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -59,6 +59,16 @@ a {
   margin-top: 0.5rem;
   font-size: 1rem;
   font-weight: lighter;
+}
+
+.desc button {
+  background-color: #1560bd;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  margin: 0.5rem;
+  margin-left: 0;
 }
 
 .theatre {

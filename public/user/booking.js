@@ -1,3 +1,7 @@
+const feedbackroute = () => {
+  window.location.href = '/addfeedback';
+};
+
 const listAvailable = async () => {
   const movieId = window.location.href.split('?')[1];
   const details = await (await fetch(`/api/showDetails/${movieId}`, { method: 'GET' })).json();
@@ -13,6 +17,13 @@ const listAvailable = async () => {
   desc.innerHTML = `<h1>${movie[0].title}<h1>
                     <p>${movie[0].genre}</p>
   `;
+  const feedback = document.createElement('button');
+  feedback.addEventListener('click', () => {
+    feedbackroute();
+  });
+  feedback.classList.add('feedback');
+  feedback.innerHTML = 'FeedBack';
+  desc.appendChild(feedback);
   wrapper.appendChild(desc);
 
   const item_div = document.querySelector('.container');

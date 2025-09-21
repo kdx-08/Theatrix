@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add feedback</title>
+    <link rel="stylesheet" href="user/feedback.css" />
+  </head>
+  <body>
+    <div class="parent">
+      <form method="post" class="form" name="feedback">
+        <h2>Add Feedback</h2>
+        <div class="form-inputs">
+          <div class="form-section">
+            <div class="input-form">
+              <input
+                type="number"
+                id="rating"
+                name="rating"
+                placeholder="Rating"
+                required
+                max="10"
+                min="1"
+              />
+            </div>
+
+            <div class="input-form textbox">
+              <label for="feedback">Feedback</label>
+              <textarea
+                id="feedback"
+                name="feedback"
+                rows="10"
+                cols="100"
+                required
+                maxlength="500"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="input-form">
+          <button id="add-feedback" type="submit">Add Feedback</button>
+        </div>
+        <div class="input-form">
+          <p><a href="/user/feedback" id="go-back">Go back</a></p>
+        </div>
+      </form>
+    </div>
+    <script src="user/feedback.js"></script>
+  </body>
+</html>
